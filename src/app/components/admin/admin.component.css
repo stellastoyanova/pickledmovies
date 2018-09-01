@@ -1,0 +1,11 @@
+.admin {
+    background-color: #d8ffa2 !important;
+}
+
+.comment{
+    background-color:lightyellow !important; 
+    border-width: 1px !important;
+    border-color: #7eb92a !important;
+    border-radius: 4%;
+    border : solid;
+}

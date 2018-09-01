@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+  crossorigin="anonymous">
+<div class="panel-body">
+  <div *ngIf="!data">
+    <img class="loadGif" src="https://cdn.dribbble.com/users/208061/screenshots/3470387/pickle.gif">
+  </div>
+  <div class="panel panel-default" *ngIf="data">
+    <div class="panel-heading">
+      <h3 class="panel-title text-center">{{selector | uppercase}}</h3>
+    </div>
+
+    <div class="row">
+      <div *ngFor="let item of data.results;let i=index" class="col-md-3">
+        <div>
+          <img *ngIf="item.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{item.poster_path}}">
+          <img *ngIf="item.profile_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{item.profile_path}}">
+          <img *ngIf="!item.profile_path && !item.poster_path" class="thumbnail" src="https://vignette.wikia.nocookie.net/rickandmorty/images/1/19/Pickle_rick_transparent.png/revision/latest?cb=20171025014216">
+          <h4 *ngIf="item.title">{{item.title}}</h4>
+          <h4 *ngIf="item.name">{{item.name}}</h4>
+          <p *ngIf="item.release_date">
+            <a class="btn btn-green" routerLink="/home/movie/{{item.id}}">View Details</a>
+          </p>
+          <p *ngIf="!item.release_date">
+            <a class="btn btn-green" routerLink="/home/actor/{{item.id}}">View Details</a>
+          </p>
+          <div *ngIf="item.release_date">
+            <span *ngFor="let a of createRange(Math.round(item.vote_average/2))" class="fas fa-ruler checked"></span>
+            <span *ngFor="let a of createRange(Math.round(5 - Math.round(item.vote_average /2 )))" class="fas fa-ruler"></span>
+            <span> {{item.vote_average/2 | number:'1.2'}} pickles!</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <app-pagination [page]="page" [collectionSize]="collectionSize" (pageChanged)="pageLoad($event)"></app-pagination>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+::ng-deep .page-link{
+    background-color:  #8ec63f;
+    border-width: 1px;
+    border-color: black;
+}
+::ng-deep .page-link:hover{
+    background-color: #7eb92a;
+    border-width: 2px;
+    border-color: black;
+}
+::ng-deep .page-item.active .page-link{
+    background-color: #7eb92a;
+    border-width: 3px;
+    border-color: black;
+}
+::ng-deep .page-item.disabled .page-link{
+    background-color: #a3d55c;  
+}

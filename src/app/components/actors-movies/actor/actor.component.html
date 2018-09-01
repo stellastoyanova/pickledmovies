@@ -1,0 +1,24 @@
+<div *ngIf="actor" class="container-fluid actor">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4">{{actor.name}}</h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-50">
+      <img class="img-fluid" src="http://image.tmdb.org/t/p/w500/{{actor.profile_path}}" alt="">
+    </div>
+
+    <div class="col-md-7">
+      <h3>Birthday: {{actor.birthday | date}}</h3>
+      <h3 class="my-3">Overview</h3>
+      <p>{{actor.biography}}</p>
+      <h3 class="my-3">Known for</h3>
+      <ul *ngIf="movies">
+        <li *ngFor="let movie of movies.results"><a routerLink="/home/movie/{{movie.id}}">{{movie.title}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /.row -->

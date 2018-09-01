@@ -1,0 +1,20 @@
+<div *ngIf="comments" class="container-fluid admin">
+
+  <div *ngFor="let comment of comments">
+    <div class="row">
+      <div class="col-md-4 offset-4 comment">
+        <p> by
+          <strong>{{comment.username}}</strong>
+        </p>
+        <div class="clearfix"></div>
+        <p>{{comment.text}}</p>
+        <div class="clearfix"></div>
+        <p>Movie id: {{comment.movieId}}</p>
+        <button class="btn btn-sm btn-danger float-right" (click)="deleteComment(comment._id)">Delete</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

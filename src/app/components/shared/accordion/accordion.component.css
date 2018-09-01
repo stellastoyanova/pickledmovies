@@ -1,0 +1,52 @@
+
+::ng-deep .card {
+   
+    background-image: url('/assets/pickles_bkg.png');
+    
+}
+::ng-deep  .card-body{
+    padding-top: 0.5rem
+}
+::ng-deep .btn-link{
+    background-color: #8ec63f;
+    color: lightyellow;
+    border-width: 1px;
+    border-color: black;
+    text-decoration: none;
+}
+::ng-deep .btn-link:hover {
+    background-color: #7eb92a;
+    color: lightyellow;
+    border-width: 2px;
+    border-color: black;
+    text-decoration: none;
+}
+::ng-deep .btn-link:focus {
+    background-color: #7eb92a;
+    color: lightyellow;
+    border-width: 2px;
+    border-color: black;
+    text-decoration: none;
+}
+.ul-item{
+    background-color:#a3d55c;
+    color: lightyellow;
+    border-width: 1px;
+    border-color: black;
+    text-decoration: none;
+}
+.ul-item:hover {
+    background-color: #8ec63f;
+    color: lightyellow;
+    border-width: 2px;
+    border-color: black;
+    text-decoration: none;
+}
+
+.ul-item:focus {
+    background-color: #7eb92a;
+    color: lightyellow;
+    border-width: 2px;
+    border-color: black;
+    text-decoration: none;
+}

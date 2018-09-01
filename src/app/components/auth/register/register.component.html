@@ -1,0 +1,60 @@
+<div class="container-fluid bck">
+  <div class="offset-4 col-sm-4">
+    <h1>Sign up</h1>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group" [ngClass]="{ 'alert alert-danger':registerForm.controls.username.touched && registerForm.controls.username.errors?.invalidUsername}">
+
+        <label for="username">Username</label>
+        <strong *ngIf="registerForm.controls.username.touched"> {{registerForm.controls.username.errors?.invalidUsername}}</strong>
+
+        <input type="text" class="form-control" formControlName="username" id="username" required>
+        <div class="alert"></div>
+
+      </div>
+      <div [formGroup]="registerForm.get( 'passwords') ">
+        <div class="form-group" [ngClass]="{ 'alert alert-danger':registerForm.controls.passwords.errors?.invalidPass}">
+          <label for="password">Password</label>
+          <strong> {{registerForm.controls.passwords.errors?.invalidPass}}</strong>
+
+          <input type="password" class="form-control" formControlName="password" id="password" required>
+
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'alert alert-danger':registerForm.controls.passwords.errors?.passMismatch} ">
+
+          <label for="confirmPassword">Confirm Password</label>
+          <strong> {{registerForm.controls.passwords.errors?.passMismatch}}</strong>
+
+
+          <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword" required>
+
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'alert alert-danger':registerForm.controls.email.touched && registerForm.controls.email.errors?.invalidEmail}">
+
+        <label for="email">Email Address</label>
+        <strong *ngIf="registerForm.controls.email.touched"> {{registerForm.controls.email.errors?.invalidEmail}}</strong>
+
+        <input type="text" class="form-control" formControlName="email" id="email" required>
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="age">Age</label>
+
+        <input type="number" class="form-control" formControlName="age" id="age">
+
+      </div>
+
+
+
+      <button [disabled]="registerForm.status==='INVALID' " type="submit " class="btn btn-green ">Register</button>
+
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="container-fluid">
+    <div class="row">
+        <app-accordion class="col-sm-2 explore-nav" [genres]="genres" (selectedChanged)="getSelectedCategory($event)"></app-accordion>
+        <app-actors-movies class="col-sm-10 movie-nav" [category]="selectedCategory"></app-actors-movies>
+    </div>
+</div>

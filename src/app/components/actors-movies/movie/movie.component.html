@@ -1,0 +1,41 @@
+<div *ngIf="movie" class="container-fluid movie">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4">{{movie.title}}</h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-4">
+      <img class="img-fluid" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="">
+    </div>
+
+    <div class="col-md-4">
+      <h3>Release date: {{movie.release_date | date}}</h3>
+      <h3 class="my-3">Overview</h3>
+      <p>{{movie.overview}}</p>
+      <h3 class="my-3">Genres</h3>
+      <ul>
+        <li *ngFor="let genre of movie.genres">{{genre.name}}</li>
+      </ul>
+      <h3 class="my-3">Cast</h3>
+      <ul *ngIf="credits">
+        <li *ngFor="let actor of credits.cast">{{actor.character}} -
+          <a routerLink="/home/actor/{{actor.id}}">{{actor.name}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="container-fluid col-md-4">
+      <app-comment [movieId]="movieId"></app-comment>
+
+      <h2 class="my-4">Comment Section</h2>
+
+      <app-comments-list [movieId]="movieId"></app-comments-list>
+    </div>
+
+
+
+
+  </div>
+</div>
+<!-- /.row -->

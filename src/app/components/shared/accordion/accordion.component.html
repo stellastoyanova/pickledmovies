@@ -1,0 +1,31 @@
+<div>
+  <ngb-accordion [closeOthers]="true" activeIds="static-1">
+    <ngb-panel id="static-1" title="Movies">
+      <ng-template ngbPanelContent>
+        <ul class="list-group">
+          <li tabindex class="list-group-item ul-item btn text-left" (click)="getCategory('mpopular')">Popular</li>
+          <li tabindex class="list-group-item ul-item btn text-left" (click)="getCategory('mnow_playing')">Now playing</li>
+          <li tabindex class="list-group-item ul-item btn text-left" (click)="getCategory('mtop_rated')">Top rated</li>
+          <li tabindex class="list-group-item ul-item btn text-left" (click)="getCategory('mupcoming')">Upcoming</li>
+        </ul>
+        <ngb-accordion>
+          <ngb-panel id="static-i1" title="Genres">
+            <ng-template ngbPanelContent>
+              <ul *ngIf="genres" class="list-group">
+                <li *ngFor="let genre of genres" tabindex class="list-group-item ul-item btn text-left" (click)="getCategory('g' + genre.id)">{{genre.name}}</li>
+              </ul>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="static-2" title="Actors">
+      <ng-template ngbPanelContent>
+        <ul class="list-group">
+          <li tabindex class="list-group-item ul-item btn text-left">Latest</li>
+          <li tabindex class="list-group-item ul-item btn text-left" (click)="getCategory('apopular')">Popular</li>
+        </ul>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>

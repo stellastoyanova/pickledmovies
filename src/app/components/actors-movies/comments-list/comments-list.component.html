@@ -1,0 +1,18 @@
+<div *ngIf="comments" class="container">
+
+  <div *ngFor="let comment of comments">
+    <div class="row">
+      <div class="col-md-10 comment">
+        <p> by
+          <strong>{{comment.username}}</strong>
+        </p>
+        <div class="clearfix"></div>
+        <p>{{comment.text}}</p>
+        <button *ngIf="currentUser===comment.username" class="btn btn-sm btn-danger float-right" (click)="deleteComment(comment._id)" >Delete</button> 
+      </div>
+     
+    </div>
+
+  </div>
+
+</div>
